@@ -9,10 +9,13 @@
 	</head>
 	<body>
 		<header>
-			<div>
+			<div id="encabezado">
 				<img src="https://fi.unju.edu.ar/images/fi-logo.png">
-				<h2>Facultad de Ingenieria</h2>
-				<p>"Siendo proactivos, responsables de nuestro propio destino"</p>
+				<div id="encabezado-titulo">
+					<h2>Facultad de Ingenieria</h2>
+					<p>"Siendo proactivos, responsables de nuestro propio destino"</p>
+				</div>
+				
 			</div>
 			<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			  <div class="container-fluid">
@@ -43,40 +46,74 @@
 			  </div>
 			</nav>
 		</header>
-		<main>
-			<aside>			
-				<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+		<main id="cuerpo">
+			<aside id="barra-lateral">			
+				<nav id="sidebarMenu" class="">
 				    <div class="position-sticky">
-				      <div class="list-group list-group-flush mx-3 mt-4">
+				      <div class="list-group-flush mx-3 mt-4">
 				        <a
 				          href="#"
-				          class="list-group-item list-group-item-action py-2 ripple"
-				          aria-current="true"
-				        >
+				          class="list-group-item list-group-item-action py-2 ripple "
+				          aria-current="true">
 				          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Biblioteca</span>
 				        </a>
-				        <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+				        <a href="#" class="list-group-item list-group-item-action py-2 ripple ">
 				          <i class="fas fa-chart-area fa-fw me-3"></i><span>Calendario Academico</span>
 				        </a>
 				      </div>
 				    </div>
 				  </nav>
 			</aside>
-			<div>
-				<p>
-				La Universidad nace el 25 de mayo de 1972 como universidad provincial y al año siguiente se transforma en Universidad Nacional. Comienza a funcionar sobre la base de cuatro carreras: Ingeniería Agronómica, Ingeniería de Minas, Ingeniería Metalúrgica e Ingeniería Química. Su propósito fue apuntalar las actividades de explotación e industrialización de los recursos naturales de Jujuy. Las tres últimas carreras mencionadas pasan a constituir la actual Facultad de Ingeniería que, con el transcurso de los años, sumó a ellas un número importante de otras carreras.
-				</p>
-			</div>
-			<div>
-				<p>Noticias</p>
+			<div id="contenido">
+				<div>
+					<p>
+					La Universidad nace el 25 de mayo de 1972 como universidad provincial y al año siguiente se transforma en Universidad Nacional. Comienza a funcionar sobre la base de cuatro carreras: Ingeniería Agronómica, Ingeniería de Minas, Ingeniería Metalúrgica e Ingeniería Química. Su propósito fue apuntalar las actividades de explotación e industrialización de los recursos naturales de Jujuy. Las tres últimas carreras mencionadas pasan a constituir la actual Facultad de Ingeniería que, con el transcurso de los años, sumó a ellas un número importante de otras carreras.
+					</p>
+				</div>
+				<div>
+					<p>Noticias</p>
+					<div id="news-container">
+						<div class="image-container">
+							<img src="	https://fi.unju.edu.ar/images/2024-Noticias/vacunacion-unju-2024.jpg">
+							<div class="bloque-texto">
+								<p>Campaña de vacunación UNJu 2024</p>
+							</div>
+						</div>
+						<div class="image-container">
+							<img src="https://fi.unju.edu.ar/images/2024-Noticias/taller-autocuidado-2-3enc.jpg">
+							<div class="bloque-texto">
+								<p>Segundo y Tercer Encuentro de los Talleres de Capacitación de "AUTOCUIDADO Y EMOCIONES" para No Docentes de la FI UNJu</p>
+							</div>
+						</div>
+						<div class="image-container">
+							<img src="https://fi.unju.edu.ar/images/2024-Noticias/acta-acuerdo-perico.jpg">
+							<div class="bloque-texto">
+								<p>Renovación de convenio académico entre la Facultad de Ingeniería y el Municipio de la Ciudad Perico</p>
+							</div>
+						</div>					
+					</div>
+				</div>
 			</div>
 		</main>
 		<footer>
-			<div>
-				<p>Contacto</p>
+			<div id="info-footer">			
+				<div>
+					<h6>Contacto</h6>
+					<p>Ítalo Palanca Nº 10</p>
+					<p>San Salvador de Jujuy </p>
+					<p>Jujuy - Argentina</p>
+					<p>info@fi.unju.edu.ar</p>
+				</div>
+				<div>
+					<h6>Redes sociales</h6>
+					<p><a>Facebook</a></p>					
+					<p><a>YouTube</a></p>					
+					<p><a>Linkedin</a></p>					
+					<p><a>Instagram</a></p>
+				</div>
 			</div>
-			<div>
-				<p>Redes sociales</p>
+			<div id="copyright">
+				<p>Copyright © 2014-2022 - Facultad de Ingeniería - UNJu</p>
 			</div>
 		</footer>
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"> </script> 
