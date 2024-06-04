@@ -1,0 +1,54 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#encabezado{
+	display: flex;
+	justify-content: space-between;
+}
+#encabezado-titulo{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 3px;
+}
+#cuerpo{
+	display:flex;
+	border: 5px;
+	padding: 2px;
+}
+#cuerpo p {
+	margin: 5px;
+}
+#sidebarMenu{
+text-align: center;
+background-color:#192841;
+color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+}
+footer{
+	background-color:#192841;
+	color: white;
+}
+.card{
+	border: none;
+}
+#info-footer{
+	display: flex;
+	justify-content: space-around;
+	padding: 5%;
+}
+#info-footer p{
+	margin: 5px;
+}
+#info-footer h6{
+	margin: 5px;
+}
+#copyright{
+	text-align:center;
+}

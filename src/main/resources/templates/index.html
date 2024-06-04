@@ -8,77 +8,59 @@
 		<link rel="stylesheet" href="/css/styles.css">
 	</head>
 	<body>
-		<header>
-			<div>
-				<img src="https://fi.unju.edu.ar/images/fi-logo.png">
-				<h2>Facultad de Ingenieria</h2>
-				<p>"Siendo proactivos, responsables de nuestro propio destino"</p>
-			</div>
-			<nav class="navbar navbar-expand-lg bg-body-tertiary">
-			  <div class="container-fluid">
-			    <a class="navbar-brand" href="#">Navbar</a>
-			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			      <span class="navbar-toggler-icon"></span>
-			    </button>
-			    <div class="collapse navbar-collapse" id="navbarNav">
-			      <ul class="navbar-nav">
-			        <li class="nav-item">
-			          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">Acerca de</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">Carreras</a>
-			        </li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Noticias</a>
-					 </li>
-					 <li class="nav-item">
-					 	<a class="nav-link" href="#">Contacto</a>
-					 </li>
-					
-			      </ul>
-			    </div>
-			  </div>
-			</nav>
-		</header>
-		<main>
-			<aside>			
-				<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+		<header th:replace="/layouts/header :: header"></header>
+		<main id="cuerpo">
+			<aside id="barra-lateral">			
+				<nav id="sidebarMenu" class="">
 				    <div class="position-sticky">
-				      <div class="list-group list-group-flush mx-3 mt-4">
+				      <div class="list-group-flush mx-3 mt-4">
 				        <a
 				          href="#"
-				          class="list-group-item list-group-item-action py-2 ripple"
-				          aria-current="true"
-				        >
+				          class="list-group-item list-group-item-action py-2 ripple "
+				          aria-current="true">
 				          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Biblioteca</span>
 				        </a>
-				        <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+				        <a href="#" class="list-group-item list-group-item-action py-2 ripple ">
 				          <i class="fas fa-chart-area fa-fw me-3"></i><span>Calendario Academico</span>
 				        </a>
 				      </div>
 				    </div>
 				  </nav>
 			</aside>
-			<div>
-				<p>
-				La Universidad nace el 25 de mayo de 1972 como universidad provincial y al año siguiente se transforma en Universidad Nacional. Comienza a funcionar sobre la base de cuatro carreras: Ingeniería Agronómica, Ingeniería de Minas, Ingeniería Metalúrgica e Ingeniería Química. Su propósito fue apuntalar las actividades de explotación e industrialización de los recursos naturales de Jujuy. Las tres últimas carreras mencionadas pasan a constituir la actual Facultad de Ingeniería que, con el transcurso de los años, sumó a ellas un número importante de otras carreras.
-				</p>
-			</div>
-			<div>
-				<p>Noticias</p>
+			<div id="contenido">
+				<div>
+					<p>
+					La Universidad nace el 25 de mayo de 1972 como universidad provincial y al año siguiente se transforma en Universidad Nacional. Comienza a funcionar sobre la base de cuatro carreras: Ingeniería Agronómica, Ingeniería de Minas, Ingeniería Metalúrgica e Ingeniería Química. Su propósito fue apuntalar las actividades de explotación e industrialización de los recursos naturales de Jujuy. Las tres últimas carreras mencionadas pasan a constituir la actual Facultad de Ingeniería que, con el transcurso de los años, sumó a ellas un número importante de otras carreras.
+					</p>
+				</div>
+				<div>
+					<p>Noticias</p>
+					<div class="container">
+						<div class="row">
+							<div class="col-4">
+								<div class="card">
+									<img src="https://fi.unju.edu.ar/images/2024-Noticias/vacunacion-unju-2024.jpg" alt="imagen de la noticia sobre vacunaciones">
+									<p class="card-text">Campaña de vacunación UNJu 2024</p>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card">
+									<img src="https://fi.unju.edu.ar/images/2024-Noticias/taller-autocuidado-2-3enc.jpg" alt="imagen de mucha gente reunida sobre un taller">
+									<p class="card-text">Segundo y Tercer Encuentro de los Talleres de Capacitación de "AUTOCUIDADO Y EMOCIONES" para No Docentes de la FI UNJu</p>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card">
+									<img src="https://fi.unju.edu.ar/images/2024-Noticias/acta-acuerdo-perico.jpg" alt="imagen sobre la acta del acuerdo de perico">
+									<p class="card-text">Renovación de convenio académico entre la Facultad de Ingeniería y el Municipio de la Ciudad Perico</p>
+								</div>
+							</div>
+						</div>				
+					</div>
+				</div>
 			</div>
 		</main>
-		<footer>
-			<div>
-				<p>Contacto</p>
-			</div>
-			<div>
-				<p>Redes sociales</p>
-			</div>
-		</footer>
+		 <footer th:replace="/layouts/footer :: footer"></footer> 
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"> </script> 
 	</body>
 </html>
