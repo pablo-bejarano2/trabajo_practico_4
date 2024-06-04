@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head th:replace="/layouts/head :: head">
+		<title>Alumnos</title>
+	</head>
+	<body>
+		<header th:replace="/layouts/header :: header"></header>
+		<div class="container-fluid">
+			<div class="row ">
+				<div class="col col-sm-12 fondo-form p-5">
+					<div class="row mb-5">
+						<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
+							<a class="btn btn-primary" data-th-href="@{/alumnos/nuevo}" role="button">Nuevo Alumno</a>
+						</div>
+						<table class="table table-striped table-hover">
+							<tr>
+								<th>DNI</th>
+								<th>Nombre</th>
+								<th>Apellido</th>
+								<th>Email</th>
+								<th>Telefono</th>
+								<th>Fecha de nacimiento</th>
+								<th>Domicilio</th>
+								<th>Libreta Universitaria</th>
+							</tr>
+							<tr data-th-each="alum: ${alumnos}">
+								<td data-th-text="${alum.dni}"></td>
+								<td data-th-text="${alum.nombre}"></td>
+								<td data-th-text="${alum.apellido}"></td>
+								<td data-th-text="${alum.email}"> </td>
+								<td data-th-text="${alum.telefono}"> </td>
+								<td data-th-text="${alum.fnacimiento}"> </td>
+								<td data-th-text="${alum.domicilio}"> </td>
+								<td data-th-text="${alum.libretaUniversitaria}"> </td>
+								<td>
+									<a class="btn btn-warning" data-th-href="@{/alumnos/modificar/}+${alum.libretaUniversitaria}" role="button">Modificar</a>
+									<a class="btn btn-danger" data-th-href="@{/alumnos/eliminar/}+${alum.libretaUniversitaria}" role="button">Eliminar</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer th:replace="/layouts/footer :: footer"></footer> 
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"> </script> 
+	</body>
+</html>

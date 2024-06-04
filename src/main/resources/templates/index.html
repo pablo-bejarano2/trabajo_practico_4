@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Facultad Ingenieria</title>
-		<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-		<link rel="stylesheet" href="/css/styles.css">
+	<head th:replace="/layouts/head :: head">
+		<title>Inicio</title>
 	</head>
 	<body>
 		<header th:replace="/layouts/header :: header"></header>
@@ -23,6 +19,17 @@
 				        <a href="#" class="list-group-item list-group-item-action py-2 ripple ">
 				          <i class="fas fa-chart-area fa-fw me-3"></i><span>Calendario Academico</span>
 				        </a>
+						<a href="/carreras/listado" class="list-group-item list-group-item-action py-2 ripple ">
+							<i class="fas fa-chart-area fa-fw me-3"></i><span>Carreras</span>
+						</a>
+						<a href="/alumnos/listado" class="list-group-item list-group-item-action py-2 ripple ">
+							<i class="fas fa-chart-area fa-fw me-3"></i><span>Alumnos</span>
+						</a>
+						<a href="/docentes/listado" class="list-group-item list-group-item-action py-2 ripple ">
+							<i class="fas fa-chart-area fa-fw me-3"></i><span>Docentes</span>
+						<a href="/materias/listado" class="list-group-item list-group-item-action py-2 ripple ">
+							<i class="fas fa-chart-area fa-fw me-3"></i><span>Materias</span>
+						</a>
 				      </div>
 				    </div>
 				  </nav>
