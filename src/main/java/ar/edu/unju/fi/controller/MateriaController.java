@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.collections.CollectionMateria;
 import ar.edu.unju.fi.collections.CollectionDocente;
 import ar.edu.unju.fi.collections.CollectionCarrera;
+import ar.edu.unju.fi.model.Carrera;
+import ar.edu.unju.fi.model.Docente;
 import ar.edu.unju.fi.model.Materia;
 
 @Controller
@@ -28,17 +32,29 @@ public class MateriaController {
 	}
 	
 	@GetMapping("/nuevo")
-	public String getCreateForm(Model model) {
-		model.addAttribute("materia", materia);
-		return "materias-create-form";
+	public ModelAndView getCreateForm() {
+		Materia materia = new Materia();
+		List<Carrera> carreras = CollectionCarrera.getCarreras();
+		List<Docente> docentes = CollectionDocente.getDocentes();
+		ModelAndView model = new ModelAndView("materias-create-form");
+		model.addObject("docente", docentes);
+		model.addObject("carrera", carreras);
+		model.addObject("materia", materia);
+		return model;
 	}
 	
 	@PostMapping("/guardar")
-	public ModelAndView guardarMateria(@ModelAttribute("materia") Materia materia) {
-		ModelAndView modelView = new ModelAndView("materias");
+	public String guardarMateria(@ModelAttribute("materia") Materia materia) {
+		System.out.println(materia);
+		Carrera carrera = CollectionCarrera.buscarCarrera(materia.getCarrera().getCodigo());
+		Docente docente = CollectionDocente.buscarDocente(materia.getDocente().getLegajo());
+		System.out.println(carrera);
+		System.out.println(docente);
+		materia.setCarrera(carrera);
+		materia.setDocente(docente);
+		materia.setModalidad(true);
 		CollectionMateria.agregarMateria(materia);
-		modelView.addObject("materias", CollectionMateria.getMaterias());
-		return modelView;
+		return "redirect:/materias/listado";
 	}
 	
 	@GetMapping("/modificar/{codigo}")
@@ -53,6 +69,11 @@ public class MateriaController {
 	
 	@PostMapping("/modificar")
 	public String modificarMateria(@ModelAttribute("materia") Materia materia) {
+		System.out.println(materia);
+		Carrera carrera = CollectionCarrera.buscarCarrera(materia.getCarrera().getCodigo());
+		Docente docente = CollectionDocente.buscarDocente(materia.getDocente().getLegajo());
+		materia.setCarrera(carrera);
+		materia.setDocente(docente);
 		CollectionMateria.modificarMateria(materia);
 		return "redirect:/materias/listado";
 	}

@@ -48,7 +48,7 @@
 		      </div>
 			  <div>
 				<label class="form-label" for="docente">Docente</label>
-				<select name="docente" th:field="*{docente}" id="docente" form="form-id">
+				<select name="docente" th:field="*{docente.legajo}" id="docente" form="form-id">
 					<option th:each="doce : ${docente}" th:value="${doce.legajo}">
 					        <span th:text="${doce.nombre}"></span>
 					    </option>
@@ -56,7 +56,7 @@
 			  </div>
 			  <div>
 			  		<label class="form-label" for="carrera">Carrera</label>
-			  		<select name="carrera" th:field="*{carrera}" id="carrera" form="form-id">
+			  		<select name="carrera" th:field="*{carrera.codigo}" id="carrera" form="form-id">
 			  			<option th:each="car : ${carrera}" th:value="${car.codigo}">
 			  			<span th:text="${car.nombre}"></span>
 			  	 </option>

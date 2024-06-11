@@ -37,18 +37,22 @@ public class CollectionMateria {
 	}
 	
 	public static void modificarMateria(Materia materia) {
-		for(Materia mat : materias) {
-			if(mat.getCodigo() == materia.getCodigo()) {
-				mat.setNombre(materia.getNombre());
-				mat.setCantidadHoras(materia.getCantidadHoras());
-				mat.setCurso(materia.getCurso());
-				mat.setModalidad(materia.getModalidad());
-				mat.setDocente(materia.getDocente());
-				mat.setCarrera(materia.getCarrera());
-			}
+		Integer indice = getIndexFor(materia);
+		if (indice != null) {
+			materias.set(indice, materia);
+		} else {
+			materias.add(materia);
 		}
 	}
 	
+	public static Integer getIndexFor(Materia materia) {
+		for(int i=0; i<materias.size(); i++) {
+			if(materias.get(i).getCodigo().equals(materia.getCodigo())){
+				return i;
+			}
+		}
+		return null;
+	}
 	public static Materia buscarMateria(int codigo) {
 		Predicate<Materia> filterCodigo = c -> c.getCodigo() == codigo;
 		Optional<Materia> materia = materias.stream().filter(filterCodigo).findFirst();
