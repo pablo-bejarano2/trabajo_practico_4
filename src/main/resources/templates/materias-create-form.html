@@ -10,7 +10,7 @@
 				<h2 class="form-title">Nueva materia</h2>
 			</div>
 			 <div>
-				 <form class="form" action="/materias/guardar" th:object="${materia}" method="post">
+				 <form class="form" action="/materias/guardar" th:object="${materia}" method="post" id="form-id">
 				  	<div>
 				        <label class="form-label" for="codigo">Codigo</label>
 				        <div>
@@ -29,11 +29,25 @@
 				          <input type="number" id="cantidadHoras" th:field="*{cantidadHoras}">
 				        </div>
 				      </div>
+					  <label class="form-label" for="curso">Curso</label>
+					   <div>
+					  <input type="text" id="curso" th:field="*{curso}">
+					  </div>
 					  <div>
-					  	 <label class="form-label" for="curso">Curso</label>
-					  	  <div>
-					  		<input type="text" id="curso" th:field="*{curso}">
-					  	 </div>
+					  	<label class="form-label" for="docente">Docente</label>
+					  	<select name="docente" th:field="*{docente.legajo}" id="docente" form="form-id">
+					  		<option th:each="doce : ${docente}" th:value="${doce.legajo}">
+					  		 <span th:text="${doce.nombre}"></span>
+					  		</option>
+					  	</select>
+					   </div>
+					  <div>
+						<label class="form-label" for="carrera">Carrera</label>
+						<select name="carrera" th:field="*{carrera.codigo}" id="carrera" form="form-id">
+							<option th:each="car : ${carrera}" th:value="${car.codigo}">
+								<span th:text="${car.nombre}"></span>
+							</option>
+						</select>
 					    </div>
 				      <p class="text-center"><input type="submit" value="Guardar"></p>
 				    </form>
