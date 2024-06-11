@@ -34,18 +34,23 @@ public class CollectionDocente {
 	}
 	
 	public static void modificarDocente(Docente docente) {
-		 Docente docenteAModificar = CollectionDocente.buscarDocente(docente.getLegajo());
-		    if (docenteAModificar != null) {
-		        docenteAModificar.setNombre(docente.getNombre());
-		        docenteAModificar.setApellido(docente.getApellido());
-		        docenteAModificar.setEmail(docente.getEmail());
-		        docenteAModificar.setTelefono(docente.getTelefono());
-			}else {
-				System.out.println("No se encuentra el legajo");
-			}
+		 Integer indice = getIndexFor(docente);
+		 if(indice != null) {
+			 docentes.set(indice, docente);
+		 }else {
+			 docentes.add(docente);
+		 }
 		
 	}
 	
+	public static Integer getIndexFor(Docente docente) {
+		for(int i=0; i<docentes.size(); i++) {
+			if(docentes.get(i).getLegajo().equals(docente.getLegajo())){
+				return i;
+			}
+		}
+		return null;
+	}
 	public static Docente buscarDocente(int legajo) {
 		Predicate<Docente> filterLegajo = d -> d.getLegajo() == legajo;
 		Optional<Docente> docente = docentes.stream().filter(filterLegajo).findFirst();
