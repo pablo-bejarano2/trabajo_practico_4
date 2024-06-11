@@ -37,19 +37,21 @@ public class CollectionAlumno {
 	}
 	
 	public static void modificarAlumno(Alumno alumno) {
-		Alumno alumnoAModificar = CollectionAlumno.buscarAlumno(alumno.getLibretaUniversitaria());
-	    if (alumnoAModificar != null) {
-	        alumnoAModificar.setDni(alumno.getDni());
-	        alumnoAModificar.setNombre(alumno.getNombre());
-	        alumnoAModificar.setApellido(alumno.getApellido());
-	        alumnoAModificar.setEmail(alumno.getEmail());
-	        alumnoAModificar.setTelefono(alumno.getTelefono());
-	        alumnoAModificar.setFnacimiento(alumno.getFnacimiento());
-	        alumnoAModificar.setDomicilio(alumno.getDomicilio());
-			} else {
-				System.out.println("No se encuentra libreta universitaria");
+		Integer indice = getIndexFor(alumno);
+		if(indice != null) {
+			alumnos.set(indice, alumno);
+		}else {
+			alumnos.add(alumno);
+		}
+	}
+	
+	public static Integer getIndexFor(Alumno alumno) {
+		for(int i=0; i<alumnos.size(); i++) {
+			if(alumnos.get(i).getLibretaUniversitaria().equals(alumno.getLibretaUniversitaria())){
+				return i;
 			}
-		
+		}
+		return null;
 	}
 	
 	public static Alumno buscarAlumno(int libretaUni) {

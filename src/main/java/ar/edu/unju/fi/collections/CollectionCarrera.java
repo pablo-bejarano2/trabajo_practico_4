@@ -31,15 +31,21 @@ public class CollectionCarrera {
 		}
 	}
 	public static void modificarCarrera(Carrera carrera) {
-		for(Carrera carre : carreras) {
-			if(carre.getCodigo() == carrera.getCodigo()) {
-				carre.setNombre(carrera.getNombre());
-				carre.setCantidadAnios(carrera.getCantidadAnios());
-				carre.setEstado(carrera.getEstado());
-			}else {
-				System.out.println("No se encuentra el código de la carrera");
+		Integer indice = getIndexFor(carrera);
+		if(indice != null) {
+			carreras.set(indice, carrera);
+		}else {
+			carreras.add(carrera);
+		}
+	}
+	
+	public static Integer getIndexFor(Carrera carrera) {
+		for(int i=0; i<carreras.size(); i++) {
+			if(carreras.get(i).getCodigo().equals(carrera.getCodigo())) {
+				return i;
 			}
 		}
+		return null;
 	}
 	public static Carrera buscarCarrera(int codigo) {
 		Predicate<Carrera> filterCodigo = c -> c.getCodigo() == codigo;
